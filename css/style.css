@@ -47,6 +47,8 @@ main{
 
 .fa-solid{
     color: #b1b1b1;
+    margin-right: 30px;
+    font-size: 25px;
 }
 
 .enable-notifications{
@@ -75,12 +77,15 @@ main{
 }
 
 .chats{
-    height: 77%;
+    height: 80%;
     overflow-y: auto;
 }
 
-.users-option{
-    height: 23%;
+.user-option{
+    height: 20%;
 }
 
+.user-info{
+    background-color: #eaeaea;
 
+}
