@@ -97,7 +97,7 @@
                                     </div>
 
                                 </li>
-                                <li class="new-message" v-for="(item, index) in newMessage">
+                                <li class="newMessage" v-for="(item, index) in newMessage">
                                     <div :class="(contacts[activeChat].messages[index].status == 'sent') ? 'sent' :''">
                                         {{item.tex}}
 
@@ -112,7 +112,7 @@
                         </div>
                         <div class="input d-flex justify-content-between align-items-center">
                             <i class="fa-regular fa-face-smile"></i>
-                            <input class="form-control w-75 p-2" type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addMessage()">
+                            <input class="form-control w-75 p-2" type="text" placeholder="Scrivi un messaggio" v-model="newMessage"  @keyup.enter="addMessage()">
                             <i class="fa-solid fa-microphone"></i>
 
                         </div>

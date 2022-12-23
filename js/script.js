@@ -7,6 +7,13 @@ createApp({
         return {
             activeChat:0,
             newMessage:'',
+            repliesList: [
+                'Scusa, ora non ti posso rispondere',
+                '???',
+                'Non ho capito',
+                'On Cracker Island it was born',
+                "I'm a scary gargoyle on a tower",
+            ],
             
             contacts: [
                 {
@@ -194,31 +201,44 @@ createApp({
 
                 }
             },
-            changeChat(index){
-                this.activeChat = index
+    changeChat(index){
+        this.activeChat = index
 
-            },
-            imgProfile(index){
-                return "./img/avatar" + this.contacts[index].avatar + ".jpg";
-            },
-            
-            addMessage(){
-                let object={
-                    message : this.newMessage,
-                    status:'sent',
-                }
-                this.contacts[this.activeChat].messages.push(object);
-                this.newMessage='';
-            },
-            chatSendRec(number, active) {
-                const chatSendRec = this.contacts[active].messages[number].message
-                return chatSendRec
-             },
-            
-
-            
-
+    },
+    imgProfile(index){
+        return "./img/avatar" + this.contacts[index].avatar + ".jpg";
+    },
+    
+    addMessage(){
+        let object={
+            message : this.newMessage,
+            status:'sent',
         }
+        this.contacts[this.activeChat].messages.push(object);
+        setTimeout(()=>{
+            let answer = {
+                message: 'ok',
+                status: 'recived'
+            }
+    
+            
+            this.contacts[this.activeChat].messages.push(answer);
+
+        },1000)
+
+        this.newMessage='';
+    },
+    chatSendRec(number, active) {
+        const chatSendRec = this.contacts[active].messages[number].message
+        return chatSendRec
+    },
+    
+    
+
+}
 
 }).mount('#app')
 
+
+
+ 
