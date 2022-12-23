@@ -214,10 +214,6 @@ createApp({
                 const chatSendRec = this.contacts[active].messages[number].message
                 return chatSendRec
              },
-            
-
-            
-
         }
 
 }).mount('#app')
