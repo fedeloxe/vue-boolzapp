@@ -97,6 +97,7 @@ main{
 .chat-display{
     background-image: url(../img/mine.jpg);
     height: 85%;
+    overflow-y: auto;
 }
 
 .input{

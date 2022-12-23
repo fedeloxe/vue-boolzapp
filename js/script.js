@@ -183,16 +183,16 @@ createApp({
         }
     },
     methods: {  
-            getLastMessage(index){ 
-                let message = this.contacts[index].messages[this.contacts[index].messages.length - 1].message
-                        if(message.length > 21){
-                            return message.substr(0,20)
+    getLastMessage(index){ 
+        let message = this.contacts[index].messages[this.contacts[index].messages.length - 1].message
+                if(message.length > 21){
+                    return message.substr(0,20)
 
-                        }
-                        else{
-                            return message
+                }
+                else{
+                    return message
 
-                        }
+                }
             },
             changeChat(index){
                 this.activeChat = index
@@ -206,14 +206,18 @@ createApp({
                 let object={
                     message : this.newMessage,
                     status:'sent',
-              activeCh  }
-                this.contacts[this.at].messages.push(object);
+                }
+                this.contacts[this.activeChat].messages.push(object);
                 this.newMessage='';
             },
             chatSendRec(number, active) {
                 const chatSendRec = this.contacts[active].messages[number].message
                 return chatSendRec
              },
+            
+
+            
+
         }
 
 }).mount('#app')
