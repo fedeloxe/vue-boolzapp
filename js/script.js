@@ -7,13 +7,9 @@ createApp({
         return {
             activeChat:0,
             newMessage:'',
-            repliesList: [
-                'Scusa, ora non ti posso rispondere',
-                '???',
-                'Non ho capito',
-                'On Cracker Island it was born',
-                "I'm a scary gargoyle on a tower",
-            ],
+            search:'',
+
+
             
             contacts: [
                 {
@@ -231,6 +227,18 @@ createApp({
     chatSendRec(number, active) {
         const chatSendRec = this.contacts[active].messages[number].message
         return chatSendRec
+    },
+    filterContacts() {
+        
+        this.contacts.forEach((contact) => {
+            if (!contact.name.toLowerCase().includes(this.search.toLowerCase())) {
+                contact.visible = false;
+                console.log('non visibile')
+            } else if(contact.name.toLowerCase().includes(this.search.toLowerCase())) {
+                contact.visible = true;
+                console.log('visibile')
+            }
+        })
     },
     
     
