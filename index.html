@@ -18,7 +18,7 @@
     <main>
         <div id="app">
             <div class="main-container d-flex"> <!--contenitore generale-->
-                <div class="cont-user border-end col-4"> <!--contenitore per dati utnetne e lista chat-->
+                <div class="cont-user border-end col-4 d-flex flex-column"> <!--contenitore per dati utnetne e lista chat-->
                     <div class="h-100">
                         <div class="user-option bg-white">
                             <div class="user-info pb-2 d-flex"> <!--dati utente-->
@@ -49,7 +49,7 @@
                                     placeholder="Cerca o inizia una nuova chat">
                             </div>
                         </div>
-                        <div class="chats pt-1"> <!--elenco chat-->
+                        <div class="chats "> <!--elenco chat-->
                             <div class="chat d-flex border-bottom pb-3" v-for="(item, index) in contacts" :class="{active: (index == activeChat)}" @click="changeChat(index)">
                                 <div class="chat-img pe-2 col-2">
                                     <img :src="'./img/avatar'+item.avatar+'.jpg'" alt=""
@@ -68,27 +68,56 @@
                     </div>
                 </div>
 
-                <div class="container border-start col-8"> <!--chat aperta-->
-                    <div class="row">
-                        <div class="col-12 chat-info d-flex align-items-center"> <!--info chat aperta -->
-                            <div class="chat-img pb-2 col-1">
-                                <img :src="imgProfile(activeChat)"
-                                    class="user-img rounded-circle user-img mt-2 ms-2">
+                <div class=" border-start col-8"> <!--chat aperta-->
+                    <div class=" h-100">
+                        <div class="col-12">
+                            <div class="col-12 chat-info d-flex align-items-center"> <!--info chat aperta -->
+                                <div class="chat-img pb-2 col-1">
+                                    <img :src="imgProfile(activeChat)"
+                                        class="user-img rounded-circle user-img mt-2 ms-2">
+                                </div>
+                                <div class="message mt-1 ms-1 col-7">
+                                    <span class="name d-block">{{contacts[activeChat].name}}</span>
+                                    <span class="last-message d-block text-black-50">Ultimo accesso oggi alle 12:00</span>
+                                </div>
+                                <div class="col-4 d-flex justify-content-end">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                    <i class="fa-solid fa-paperclip"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </div>
                             </div>
-                            <div class="message mt-1 ms-1 col-7">
-                                <span class="name d-block">{{contacts[activeChat].name}}</span>
-                                <span class="last-message d-block text-black-50">Ultimo accesso oggi alle 12:00</span>
-                            </div>
-                            <div class="col-4 d-flex justify-content-end">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                                <i class="fa-solid fa-paperclip"></i>
-                                <i class="fa-solid fa-ellipsis-vertical"></i>
 
-                            </div>
-                            
                         </div>
-                    </div>
+                        <div class="chat-display col-12 ">
+                            <ul class="list-unstyled ">
+                                <li class="message d-flex flex-column" v-for="(item,index) in contacts[activeChat].messages">
+                                    <div :class="(contacts[activeChat].messages[index].status == 'sent')? 'sent' : 'recived'">
+                                        {{chatSendRec(index,activeChat)}}
 
+                                    </div>
+
+                                </li>
+                                <li class="new-message" v-for="(item, index) in newMessage">
+                                    <div :class="(contacts[activeChat].messages[index].status == 'sent') ? 'sent' :''">
+                                        {{item.tex}}
+
+                                    </div>
+                                    
+
+                                </li>
+
+                            </ul>
+  
+
+                        </div>
+                        <div class="input d-flex justify-content-between align-items-center">
+                            <i class="fa-regular fa-face-smile"></i>
+                            <input class="form-control w-75 p-2" type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="addMessage()">
+                            <i class="fa-solid fa-microphone"></i>
+
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>

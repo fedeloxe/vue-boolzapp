@@ -45,7 +45,7 @@ main{
     background-color: #eaeaea;
 }
 
-.fa-solid{
+.fa-solid, .fa-regular{
     color: #b1b1b1;
     margin-right: 30px;
     font-size: 25px;
@@ -77,15 +77,34 @@ main{
 }
 
 .chats{
-    height: 80%;
+    height: 78%;
     overflow-y: auto;
+    
+    cursor: pointer;
 }
 
-.user-option{
-    height: 20%;
-}
+
 
 .user-info{
     background-color: #eaeaea;
 
 }
+
+.active{
+    background-color:#eaeaea;
+}
+
+.chat-display{
+    background-image: url(../img/mine.jpg);
+    height: 85%;
+}
+
+.input{
+    background-color: #f3eeea ;
+    padding: 10px;
+}
+
+.sent{
+    align-self: flex-end;
+}
+
