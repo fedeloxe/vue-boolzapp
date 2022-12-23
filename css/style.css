@@ -107,5 +107,15 @@ main{
 
 .sent{
     align-self: flex-end;
+    background-color: #d5f9ba;
 }
 
+.recived{
+    background-color: white;
+}
+.recived , .sent{
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    width: 200px;
+}
