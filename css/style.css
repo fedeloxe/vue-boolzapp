@@ -1,5 +1,3 @@
-/* attributi contenitori */
-
 *{
     margin: 0;
     border: 0;
@@ -14,48 +12,30 @@ body{
     padding-top: 50px;
 }
 
-main{
+.main-container{
     width:70%;
-    height: 90%;
+    height: 90vh;
     margin: 0 auto;
     background-color:#ffffff;
 }
 
-#app{
-    height: 100%;
+/* user-info */
+.user{
+    height: 22%;
+    background-color: #ffffff;
+    
 }
-
-.main-container{
-    width: 100%;
-    height: 100%;
-}
-
-
-.container-chat{
-    height: 100%;
-}
-
 
 .user-img{
     width: 50px;
-    vertical-align:middle
+    vertical-align: middle;
 }
 
-.chat-info{
-    background-color: #eaeaea;
-}
-
-.fa-solid, .fa-regular{
-    color: #b1b1b1;
-    margin-right: 30px;
-    font-size: 25px;
-}
-
-.enable-notifications{
+.notifications{
     background-color: #8edafc;
 }
 
-.fa-bell-slash{
+.notifications .fa-bell-slash{
     padding: 12px;
     background-color: white;
     border-radius: 50%;
@@ -63,36 +43,16 @@ main{
     color: #8edafc;   
 }
 
-.fs{
-    font-size: 15px;
-}
+/* chats-list */
 
-.last-message{
-    font-size: 15px;
-}
 
-.hours{
-    font-size: 15px;
-    color: #b1b1b1;
-}
-
-.chats{
+.chat-list{
     height: 78%;
     overflow-y: auto;
-    
     cursor: pointer;
 }
 
-
-
-.user-info{
-    background-color: #eaeaea;
-
-}
-
-.active{
-    background-color:#eaeaea;
-}
+/* active-chat */
 
 .chat-display{
     background-image: url(../img/mine.jpg);
@@ -102,7 +62,7 @@ main{
 
 .input{
     background-color: #f3eeea ;
-    padding: 10px;
+    padding: 9px;
 }
 
 .sent{
@@ -122,4 +82,16 @@ main{
 
 .newMessage{
     display: none;
+}
+
+/* attribute */
+
+.fa-solid, .fa-regular{
+    color: #b1b1b1;
+    margin-right: 30px;
+    font-size: 25px;
+}
+
+.user-info , .chat-info, .active{
+    background-color: #eaeaea;
 }
