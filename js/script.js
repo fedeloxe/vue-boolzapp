@@ -189,7 +189,7 @@ createApp({
     getLastMessage(index){ 
         let message = this.contacts[index].messages[this.contacts[index].messages.length - 1].message
                 if(message.length > 21){
-                    return message.substr(0,20)
+                    return message.substr(0,20) +'...'
 
                 }
                 else{
